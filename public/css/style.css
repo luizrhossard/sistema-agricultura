@@ -1,0 +1,1129 @@
+/* --- ESTILO AGRO MODERNO --- */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700;900&family=Lato:wght@300;400;700&display=swap");
+
+:root {
+    /* Paleta Agro */
+    --primary: #2d6a4f; /* Verde Musgo Escuro */
+    --primary-dark: #1b4332;
+    --accent: #d8f3dc; /* Verde Claro Suave */
+    --earth: #bc6c25; /* Tom Terra/Bronze */
+    --bg-body: #f8f9fa;
+    --text-main: #2d3436;
+    --text-light: #636e72;
+
+    /* Design */
+    --radius: 8px; /* Bordas menos arredondadas (mais sério) */
+    --shadow: 0 4px 20px rgba(45, 106, 79, 0.1);
+
+    /* Fontes */
+    --font-hand: "Playwrite HU", cursive;
+    --font-script: "Borel", cursive;
+}
+
+body {
+    font-family: "Lato", sans-serif; /* Texto corrido limpo */
+    background-color: #fdfbf7; /* Fundo levemente creme/papel */
+    color: var(--text-main);
+}
+
+h2,
+h3 {
+    font-family: "Merriweather", serif; /* Títulos com personalidade */
+}
+
+/* Aplicando nos Títulos Principais */
+h1,
+.hero-title {
+    font-family: var(--font-hand);
+    font-weight: 400; /* Fontes manuais não precisam de bold pesado */
+}
+
+/* Aplicando na Marca (Logo Texto) */
+.nav-brand,
+.footer-brand-text {
+    font-family: var(--font-script); /* Fica bem artístico */
+    letter-spacing: 0px; /* Cursiva precisa de letras juntas */
+}
+
+/* Em public/css/style.css */
+.nav-brand img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover img {
+    transform: scale(1.05); /* Efeito suave de zoom ao passar o mouse */
+}
+
+/* Hero Section (Cabeçalho Verde) */
+
+.hero-section {
+    background: linear-gradient(rgba(27, 67, 50, 0.9), rgba(45, 106, 79, 0.8)),
+        url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    padding: 6rem 1rem 8rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-title {
+    font-family: var(--font-hand);
+    font-size: 4rem; /* Maior para ficar legível */
+    transform: rotate(-2deg); /* Leve inclinação para parecer escrito à mão */
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões (Ver Guia, Cadastrar) */
+.btn-view,
+.btn-submit,
+.btn-add-new {
+    background-color: var(--primary);
+    border-radius: 4px; /* Mais quadrado */
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.btn-view:hover,
+.btn-submit:hover {
+    background-color: var(
+        --earth
+    ); /* Muda para cor de terra ao passar o mouse */
+}
+
+/* Navbar */
+.navbar {
+    background: white;
+    border-bottom: 3px solid var(--primary); /* Detalhe elegante embaixo */
+    box-shadow: none;
+}
+
+.nav-brand {
+    color: var(--primary);
+    font-weight: 900;
+    font-size: 1.4rem;
+}
+
+/* --- Reset e Navbar Fix --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Navbar Fix */
+.navbar {
+    height: 80px; /* Altura fixa para evitar colapso */
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between; /* Logo na esquerda, Menu na direita */
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Espaço entre os links */
+}
+
+.nav-brand {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-hamburger {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+/* Ajuste Responsivo da Navbar */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-hamburger {
+        display: block;
+    }
+}
+
+/* --- Header Hero --- */
+
+.hero-subtitle {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* --- Barra de Filtros e Pesquisa --- */
+/* --- Barra de Filtros Integrada --- */
+.filter-container {
+    background: white;
+    width: 90%; /* Ocupa quase toda a largura */
+    max-width: 1200px; /* Limite máximo para telas gigantes */
+    margin: -3rem auto 3rem auto; /* Sobe 3rem para sobrepor o banner */
+    padding: 1.5rem 2rem;
+    border-radius: 12px; /* Cantos menos arredondados para combinar */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Borda sutil */
+}
+
+/* Ajuste na caixa de busca para crescer */
+/* Correção da Lupa */
+.search-box {
+    position: relative; /* Isso é essencial para o ícone se posicionar */
+    flex: 2;
+    min-width: 300px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 1px solid #e0e0e0;
+    background: #fdfbf7;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+}
+
+.search-box i {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza perfeitamente na vertical */
+    font-size: 1.1rem;
+    color: var(--primary);
+    pointer-events: none; /* Garante que o clique passe pelo ícone */
+}
+
+/* Ajuste nos botões de filtro */
+.filter-buttons {
+    flex: 3; /* Ocupa o resto do espaço */
+    justify-content: flex-end; /* Alinha à direita */
+    display: flex;
+    gap: 0.8rem;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-family: "Lato", sans-serif;
+    font-weight: 600;
+}
+
+.filter-btn:hover {
+    background: #f1f8f1;
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(45, 106, 79, 0.3);
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+    .filter-container {
+        width: 95%;
+        flex-direction: column;
+        align-items: stretch; /* Estica tudo */
+        padding: 1.5rem;
+    }
+
+    .filter-buttons {
+        justify-content: center; /* Centraliza no celular */
+        flex-wrap: wrap;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+}
+
+/* --- Grid de Cards --- */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(320px, 1fr)
+    ); /* Cards mais largos */
+    gap: 2rem;
+    padding: 2rem 0;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura para não estourar */
+    margin: 0 auto; /* Centraliza o grid na tela */
+}
+
+/* --- Cards Estilo "Cultive" --- */
+.plant-card {
+    background: white;
+    border: 1px solid #edf2f7; /* Borda bem suave */
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.plant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Sombra difusa */
+    border-color: transparent;
+}
+
+/* Área da Imagem Ajustada */
+.card-img-top {
+    height: 180px; /* Um pouco menor para equilibrar */
+    background: linear-gradient(
+        135deg,
+        #fdfbfb 0%,
+        #ebedee 100%
+    ); /* Gradiente sutil */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-img-top i {
+    font-size: 6rem; /* Ícone bem grande */
+    line-height: 1;
+    color: var(--primary); /* Ou use a cor natural do vegetal */
+
+    /* Truque para dar efeito 3D no ícone FontAwesome */
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 5px 5px rgba(0, 0, 0, 0.1);
+    transform: translateY(5px); /* Ajuste fino de posição */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito elástico */
+}
+
+/* Cores específicas para cada tipo (Opcional, se quiser variar) */
+.filter-item.fruta .card-img-top i {
+    color: #ff7675;
+}
+.filter-item.legume .card-img-top i {
+    color: #fdcb6e;
+}
+.filter-item.vegetal .card-img-top i {
+    color: #55efc4;
+}
+
+.plant-card:hover .card-img-top i {
+    transform: scale(1.15) rotate(-5deg) translateY(-5px); /* Pula ao passar o mouse */
+}
+
+/* Imagem Real (se houver) */
+.plant-cover-img {
+    width: 80%; /* Não ocupa tudo, parece um objeto flutuando */
+    height: 80%;
+    object-fit: contain; /* Mantém proporção */
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+}
+
+/* Corpo do Card */
+.card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-family: "Lato", sans-serif; /* Fonte limpa */
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 0.2rem;
+}
+
+/* Detalhes como "Vegetal", "Fruta" nos cards */
+.card-category,
+.category-tag {
+    font-family: var(--font-hand);
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Stats (Icones pequenos embaixo) */
+.card-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto; /* Empurra para o fundo */
+    padding-top: 1rem;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #a0aec0;
+    gap: 4px;
+}
+
+.stat-item i {
+    font-size: 1rem;
+    color: var(--primary); /* Verde da marca */
+    margin-bottom: 2px;
+}
+
+.stat-item strong {
+    color: #4a5568;
+    font-weight: 700;
+}
+
+/* Botão Ver Guia (Full Width) */
+.card-actions {
+    margin-top: 1.5rem;
+}
+
+.btn-view {
+    width: 100%;
+    display: block;
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 0.9rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: none; /* Tira o uppercase para ficar mais amigável */
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 5px 15px rgba(45, 106, 79, 0.3);
+}
+
+/* Coração (Favorito) Flutuante no Topo */
+.btn-fav {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cbd5e0;
+    z-index: 5;
+    transition: 0.2s;
+}
+
+.btn-fav:hover {
+    color: #ff6b6b;
+    transform: scale(1.1);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        border-radius: 20px;
+        margin-top: -2rem;
+    }
+    .filter-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    .search-box {
+        width: 100%;
+    }
+}
+
+/* --- Página de Detalhes (Guia) --- */
+.guide-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    color: var(--primary);
+    transform: translateX(-5px);
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Sidebar Esquerda */
+.guide-sidebar {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 100px; /* Fica fixo ao rolar */
+}
+
+.plant-cover {
+    background: #e8f5e9;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    font-size: 3.5rem;
+    color: var(--primary);
+}
+
+.plant-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+    color: var(--text-main);
+}
+
+.plant-category {
+    background: #f0f2f5;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.quick-stats {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+}
+
+.quick-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.quick-stat-item i {
+    font-size: 1.2rem;
+    color: var(--primary);
+    width: 24px;
+    text-align: center;
+}
+
+.quick-stat-item span {
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.quick-stat-item strong {
+    color: var(--text-main);
+}
+
+.btn-favorite-large {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: white;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-favorite-large:hover {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+}
+
+/* Conteúdo Direita */
+.guide-content {
+    background: white;
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+}
+
+.guide-section {
+    margin-bottom: 3rem;
+}
+
+.guide-section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-main);
+}
+
+.guide-section h2 i {
+    color: var(--primary);
+}
+
+.guide-text {
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.05rem;
+}
+
+/* Grid de Necessidades */
+.needs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.need-card {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #eee;
+}
+
+.need-card i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.need-card h4 {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+
+.need-card p {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Lista de Dicas */
+.tips-list {
+    list-style: none;
+}
+
+.tips-list li {
+    background: #f0fdf4;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    color: #1b4332;
+    border-left: 4px solid var(--primary);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .guide-grid {
+        grid-template-columns: 1fr;
+    }
+    .guide-sidebar {
+        position: relative;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .quick-stats {
+        width: 100%;
+    }
+}
+/* --- Formulários Estilizados --- */
+.form-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.form-header h1 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: var(--text-light);
+}
+
+.styled-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-light);
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+    width: 100%;
+    padding: 0.8rem 1rem 0.8rem 2.8rem; /* Espaço para o ícone */
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text-main);
+    background: #f9fafb;
+    transition: 0.3s;
+    font-family: inherit;
+}
+
+.input-wrapper textarea {
+    padding-left: 1rem; /* Textarea sem ícone dentro */
+    resize: vertical;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus,
+.input-wrapper textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.1);
+}
+
+/* Botões do Form */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.btn-submit {
+    border: none;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    background: #f1f2f6;
+    color: var(--text-light);
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-cancel:hover {
+    background: #e1e2e6;
+    color: var(--text-main);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .form-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    flex: 1; /* Para o footer ficar embaixo */
+}
+
+/* --- Footer Agro Profissional --- */
+.footer {
+    background-color: var(--primary-dark); /* Fundo verde escuro sério */
+    color: #ecf0f1;
+    padding: 4rem 0 0 0;
+    margin-top: auto; /* Garante que fique no final da página */
+    font-size: 0.95rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+}
+
+.footer-brand {
+    font-family: "Merriweather", serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #a8e6cf; /* Verde claro para destaque */
+}
+
+.footer-col h4 {
+    font-family: "Lato", sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--earth);
+    display: inline-block;
+    padding-bottom: 0.3rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: white;
+    padding-left: 5px; /* Efeito de deslizar */
+}
+
+.footer-col ul li i {
+    margin-right: 0.5rem;
+    color: var(--earth);
+}
+
+.footer-bottom {
+    background: #142e22; /* Tom ainda mais escuro */
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--earth);
+    transform: translateY(-3px);
+}
+
+/* Responsivo Footer */
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Ajuste da Logo no Footer */
+    .footer-logo-img {
+        height: 60px; /* Um pouco maior que no menu */
+        width: auto;
+        object-fit: contain;
+        background: white; /* Cria um fundo branco para a logo JPG não sumir no verde escuro */
+        padding: 5px 10px;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-logo-link {
+        display: inline-block;
+        transition: transform 0.3s;
+    }
+
+    .footer-logo-link:hover {
+        transform: scale(1.03);
+    }
+}
+
+/* Marca AgriConnect no Footer */
+.footer-brand-text {
+    font-family: "Merriweather", serif;
+    font-size: 2.4rem; /* Bem grande e imponente */
+    font-weight: 900; /* Extra Bold */
+    color: #f8f9fa; /* Branco levemente off-white */
+    margin-bottom: 1rem;
+    letter-spacing: -1.5px; /* Letras juntinhas (estilo moderno) */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar do fundo */
+}
+
+.footer-brand-text i {
+    color: var(--earth); /* Aquele tom de bronze/terra (#bc6c25) */
+    font-size: 2rem;
+    transform: translateY(-3px); /* Ajuste fino de alinhamento */
+}
+
+/* Imagem de Capa do Card */
+.plant-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Corta a imagem para preencher o quadrado sem distorcer */
+    transition: transform 0.5s ease;
+}
+
+.plant-card:hover .plant-cover-img {
+    transform: scale(1.1); /* Efeito de zoom suave ao passar o mouse */
+}
+
+/* Categoria no Card */
+.card-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: var(--primary); /* Verde da marca */
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* --- Pagination --- */
+.pagination-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+/* Wrapper padrão do Laravel */
+.pagination {
+    display: inline-flex;
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Cada item (número, anterior, próximo) */
+.page-item {
+    margin: 0 3px;
+}
+
+/* Links da paginação */
+.page-link {
+    padding: 0.45rem 0.85rem;
+    border-radius: 4px;
+    border: 1px solid #1f4c36; /* borda verde escura */
+    background-color: #ffffff; /* fundo branco */
+    color: #1f4c36; /* texto verde escuro */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Hover */
+.page-link:hover {
+    background-color: #1f4c36; /* fundo verde */
+    color: #ffffff; /* texto branco */
+}
+
+/* Página ativa */
+.page-item.active .page-link {
+    background-color: #1f4c36; /* mesmo verde dos botões */
+    border-color: #1f4c36;
+    color: #ffffff;
+}
+
+/* Desabilitados (seta anterior/próxima quando não tem página) */
+.page-item.disabled .page-link {
+    background-color: #e5ebe7;
+    color: #93a79d;
+    border-color: #d0ddd6;
+}
+
+
+.pagination-wrapper {
+    padding: 24px 0 40px;
+    background-color: #fdfbf7; /* Cor de fundo do body */
+}
+
+.pagination-container {
+    text-align: center;
+}
+
+/* garante que a pagina��o fica centralizada */
+.pagination {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
