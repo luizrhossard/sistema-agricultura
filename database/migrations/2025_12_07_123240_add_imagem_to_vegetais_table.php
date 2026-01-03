@@ -9,13 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up(): void
-{
-    Schema::table('vegetais', function (Blueprint $table) {
-        // Adiciona a coluna imagem, permitindo ser nula (opcional)
-        $table->string('imagem')->nullable()->after('categoria');
-    });
-}
+    public function up(): void
+    {
+        Schema::table('vegetais', function (Blueprint $table) {
+            // Adiciona a coluna imagem, permitindo ser nula (opcional)
+            $table->string('imagem')->nullable()->after('categoria');
+        });
+    }
 
 
     /**

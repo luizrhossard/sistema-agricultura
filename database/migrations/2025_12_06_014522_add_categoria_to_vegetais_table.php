@@ -9,13 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up(): void
-{
-    Schema::table('vegetais', function (Blueprint $table) {
-        // Adicione esta linha
-        $table->string('categoria')->default('vegetal')->after('nome');
-    });
-}
+    public function up(): void
+    {
+        Schema::table('vegetais', function (Blueprint $table) {
+            // Adicione esta linha
+            $table->string('categoria')->default('vegetal')->after('nome');
+        });
+    }
 
 
     /**

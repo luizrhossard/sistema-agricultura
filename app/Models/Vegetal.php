@@ -2,14 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Vegetal extends Model
 {
+    use HasFactory;
     protected $table = 'vegetais';
-    
+
     // Quais colunas podem ser preenchidas
-protected $fillable = [
+    protected $fillable = [
     'nome',
     'categoria',
     'imagem', // <--- Adicione aqui
@@ -19,10 +21,10 @@ protected $fillable = [
     'distancia_entre_plantas_cm',
     'umidade_solo_percentual',
     'descricao'
-];
+    ];
 
 
-    
+
     // Casts automáticos
     protected $casts = [
         'tempo_plantio_dias' => 'integer',
@@ -32,8 +34,7 @@ protected $fillable = [
     ];
 
     public function usersQueFavoritaram()
-{
-    return $this->belongsToMany(User::class, 'favoritos');
-}
-
+    {
+        return $this->belongsToMany(User::class, 'favoritos');
+    }
 }

@@ -21,9 +21,9 @@ class VegetalController extends Controller
     }
 
     // Salvar novo vegetal
-public function store(Request $request)
-{
-    $data = $request->validate([
+    public function store(Request $request)
+    {
+        $data = $request->validate([
         'nome' => 'required|string|max:255',
         'categoria' => 'required|string',
         'imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validação da imagem
@@ -33,19 +33,19 @@ public function store(Request $request)
         'distancia_entre_plantas_cm' => 'required|numeric',
         'umidade_solo_percentual' => 'required|integer',
         'descricao' => 'nullable|string',
-    ]);
+        ]);
 
-    // Lógica de Upload
-    if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
-        // Salva na pasta 'public/vegetais' e retorna o caminho
-        $imagePath = $request->imagem->store('vegetais', 'public');
-        $data['imagem'] = $imagePath;
+        // Lógica de Upload
+        if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
+            // Salva na pasta 'public/vegetais' e retorna o caminho
+            $imagePath = $request->imagem->store('vegetais', 'public');
+            $data['imagem'] = $imagePath;
+        }
+
+        Vegetal::create($data);
+
+        return redirect()->route('home')->with('success', 'Planta cadastrada com sucesso!');
     }
-
-    Vegetal::create($data);
-
-    return redirect()->route('home')->with('success', 'Planta cadastrada com sucesso!');
-}
 
 
     // Exibir um vegetal específico
@@ -96,14 +96,13 @@ public function store(Request $request)
                         ->with('success', 'Vegetal deletado com sucesso!');
     }
     public function toggleFavorite(Vegetal $vegetal)
-{
-    $user = auth()->user();
-    
+    {
+        $user = auth()->user();
+
     // Se já favoritou, remove (toggle)
     // Se não, adiciona
-    $user->favoritos()->toggle($vegetal->id);
+        $user->favoritos()->toggle($vegetal->id);
 
-    return back(); // Volta para a página anterior
-}
-
+        return back(); // Volta para a página anterior
+    }
 }
