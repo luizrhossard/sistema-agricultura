@@ -23,3 +23,7 @@ Sistema **completo de agricultura** com CRUD de vegetais, autenticação Breeze 
 
 Laravel 11.x PHP 8.2+ SQLite 3.x
 Tailwind CSS Blade Breeze Auth
+
+**qualidade**
+
+Este projeto utiliza PHP_CodeSniffer (PSR-12) e testes de feature com PHPUnit para garantir qualidade e estabilidade do código.
