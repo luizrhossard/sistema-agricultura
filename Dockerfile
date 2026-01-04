@@ -19,3 +19,9 @@ WORKDIR /var/www
 COPY . .
 RUN composer install --optimize-autoloader --no-dev
 RUN chown -R www-data:www-data /var/www
+
+# Expor porta
+EXPOSE 9000
+
+# Iniciar PHP-FPM
+CMD ["php-fpm"]
