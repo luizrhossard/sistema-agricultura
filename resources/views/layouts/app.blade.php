@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Borel&family=Playwrite+HU:wght@100..400&display=swap" rel="stylesheet">
     
     <!-- Title -->
-    <title>🌱 Sistema de Agricultura - @yield('title', 'Home')</title>
+    <title> Sistema de Agricultura - @yield('title', 'Home')</title>
+    <link rel="icon" href="{{ asset('img/logomarca-50.png') }}" type="image/png">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -116,11 +117,9 @@
 
         <!-- Coluna 3: Contato -->
         <div class="footer-col">
-            <h4>Fale Conosco</h4>
+            <h4>Informações</h4>
             <ul>
-                <li><i class="fas fa-envelope"></i> contato@agriconnect.com</li>
-                <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
-                <li><i class="fas fa-map-marker-alt"></i> Brasil</li>
+                <li><i class="fas fa-envelope"></i> Demo público: demo@agricultura.com / demo123.</li>
             </ul>
         </div>
     </div>

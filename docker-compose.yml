@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agricultura_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./storage:/var/www/storage
+    networks:
+      - agricultura_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: agricultura_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - agricultura_network
+
+  db:
+    image: mysql:8.0
+    container_name: agricultura_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: agricultura
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_PASSWORD: password
+      MYSQL_USER: agricultura
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    networks:
+      - agricultura_network
+
+volumes:
+  dbdata:
+
+networks:
+  agricultura_network:
+    driver: bridge
