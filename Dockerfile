@@ -1,3 +1,4 @@
+
 FROM php:8.2-fpm
 
 # Instalar extensões PHP
@@ -18,13 +19,13 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 COPY . .
 RUN composer install --optimize-autoloader --no-dev
-RUN chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 # Copiar .env e gerar chave
 RUN cp .env.example .env
-# RUN php artisan key:generate --no-interaction
-# RUN php artisan cache:clear
-# RUN php artisan config:clear
+RUN php artisan key:generate --no-interaction
+RUN php artisan cache:clear
+RUN php artisan config:clear
 
 # Expor porta
 EXPOSE 9000
