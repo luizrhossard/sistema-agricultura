@@ -22,9 +22,9 @@ RUN chown -R www-data:www-data /var/www
 
 # Copiar .env e gerar chave
 RUN cp .env.example .env
-RUN php artisan key:generate --no-interaction
-RUN php artisan cache:clear
-RUN php artisan config:clear
+# RUN php artisan key:generate --no-interaction
+# RUN php artisan cache:clear
+# RUN php artisan config:clear
 
 # Expor porta
 EXPOSE 9000
