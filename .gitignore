@@ -31,8 +31,7 @@ storage/app/database.sqlite
 # Misc
 .DS_Store
 Thumbs.db
-/auth.json
-/public/build
+/auth.json 
 /storage/pail
 /.phpunit.cache
 *.log
