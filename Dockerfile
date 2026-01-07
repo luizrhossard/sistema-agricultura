@@ -15,7 +15,8 @@ COPY composer.json composer.lock ./
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV COMPOSER_MEMORY_LIMIT=-1
 
-RUN composer install -vvv --no-interaction --no-dev --optimize-autoloader --no-progress --no-scripts
+RUN composer install -vvv --no-interaction --no-dev --optimize-autoloader --no-progress --no-scripts --no-plugins
+
 
 COPY . .
 
