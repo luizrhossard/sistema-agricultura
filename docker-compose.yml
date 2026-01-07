@@ -34,4 +34,10 @@ services:
     networks:
       - agricultura_network
 
-vol
+volumes:
+  dbdata:
+  storage_data:
+
+networks:
+  agricultura_network:
+    driver: bridge
