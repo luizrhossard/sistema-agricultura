@@ -9,8 +9,8 @@ COPY . .
 RUN npm run build
 
 
-# 2) PHP runtime
-FROM php:8.2-fpm
+# 2) PHP runtime (app)
+FROM php:8.2-fpm AS app
 
 RUN apt-get update && apt-get install -y \
     git curl unzip zip \
@@ -38,3 +38,11 @@ RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 9000
 CMD ["php-fpm"]
+
+
+# 3) Nginx (serve public + build)
+FROM nginx:alpine AS nginx
+WORKDIR /var/www
+
+# Copia o public já com /build gerado
+COPY --from=app /var/www/public /var/www/public
