@@ -9,10 +9,16 @@ RUN apt-get update && apt-get install -y \
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
+
 COPY composer.json composer.lock ./
-RUN composer install --optimize-autoloader --no-dev --no-interaction
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_MEMORY_LIMIT=-1
+
+RUN composer install -vvv --no-interaction --no-dev --optimize-autoloader --no-progress
 
 COPY . .
+
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 9000
