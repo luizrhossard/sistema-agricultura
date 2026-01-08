@@ -111,7 +111,7 @@
                 <li><a href="{{ route('home') }}">Início</a></li>
                 <li><a href="{{ route('vegetais.index') }}">Catálogo Completo</a></li>
                 <li><a href="#">Dicas de Cultivo</a></li>
-                <li><a href="syspixel.cloud">Sobre Nós</a></li>
+                <li><a href="https://syspixel.cloud/">Sobre Nós</a></li>
             </ul>
         </div>
 
